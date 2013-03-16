@@ -22,6 +22,9 @@ namespace InControl_Console_Test_application {
             // Gets a list of all devices (not required, just here as a sample)
             var devices = service.devices(pwd);
 
+            // Get the thermostat device from the list of devices that came back
+            var tstatDevice = devices.Where(d => d.deviceId.ToString() == tstatDeviceId).FirstOrDefault() as Thermostat;
+
             // Gets a device from the server
             var tstat = service.getDevice(pwd, tstatDeviceId);
 
